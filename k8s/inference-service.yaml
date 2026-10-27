@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ticket-classifier
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ticket-classifier
+  template:
+    metadata:
+      labels:
+        app: ticket-classifier
+    spec:
+      containers:
+        - name: ticket-classifier
+          image: ticket-classifier:v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ticket-classifier
+spec:
+  type: NodePort
+  selector:
+    app: ticket-classifier
+  ports:
+    - port: 8000
+      targetPort: 8000

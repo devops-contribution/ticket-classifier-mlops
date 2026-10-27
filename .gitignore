@@ -1,0 +1,9 @@
+.venv
+__pycache__/
+*.pyc
+mlflow.db
+mlruns/
+.DS_Store
+
+model/*
+!model/.gitkeep

@@ -1,0 +1,19 @@
+text,category
+"I was charged twice for my subscription",Billing
+"My payment was deducted but my order failed",Billing
+"I need an invoice for my last payment",Billing
+"My credit card payment is not working",Billing
+"Please explain the extra charge on my account",Billing
+"I cannot download my monthly invoice",Billing
+"My application crashes when I open it",Technical
+"I cannot log in to my account",Technical
+"The website shows an internal server error",Technical
+"The mobile app keeps freezing",Technical
+"I cannot reset my password",Technical
+"The page is not loading",Technical
+"I want to return my order and get my money back",Refund
+"Please refund my cancelled order",Refund
+"I received a damaged item and want a refund",Refund
+"How long will my refund take",Refund
+"I want my subscription payment refunded",Refund
+"Please return the money to my bank account",Refund
