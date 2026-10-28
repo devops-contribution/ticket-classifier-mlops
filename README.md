@@ -34,3 +34,10 @@ curl -X POST http://127.0.0.1:8000/predict \
   -H "Content-Type: application/json" \
   -d '{"text":"I was charged twice"}'
 ```
+
+## Edit: Now the model is being served using kserve 
+```bash
+curl -X POST http://localhost:8080/v1/models/my-model:predict \
+  -H "Content-Type: application/json" \
+  -d '{"instances": ["app is hung"]}'
+```
