@@ -5,11 +5,11 @@ A support-ticket text classifier (scikit-learn) served on Kubernetes with [KServ
 ```
  your laptop                         minikube cluster
 ┌────────────┐   kubectl cp    ┌──────────────────────────────┐
-│ model.joblib│ ─────────────▶ │ PVC (my-model-pvc)           │
+│model.joblib│ ─────────────▶  │ PVC (my-model-pvc)           │
 └────────────┘                 │   └─ my-model/model.joblib   │
-                               │            │ mounted          │
- curl :8080  ◀── port-forward ──│  KServe predictor pod        │
-                               │  (sklearn server, "my-model") │
+                               │            │ mounted         │
+ curl :8080 ◀── port-forward ──│  KServe predictor pod        │
+                               │ (sklearn server, "my-model") │
                                └──────────────────────────────┘
 ```
 
